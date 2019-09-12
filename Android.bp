@@ -17,9 +17,10 @@ android_app {
     optimize: {
         proguard_flags_files: ["proguard.cfg"],
     },
-    sdk_version: "system_current",
     product_specific: true,
     privileged: true,
+    platform_apis: true,
+    certificate: "platform",
     required: ["privapp_whitelist_com.android.settings.intelligence"],
 
     static_libs: [
