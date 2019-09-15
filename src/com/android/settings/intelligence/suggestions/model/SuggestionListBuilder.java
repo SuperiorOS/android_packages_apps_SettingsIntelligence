@@ -43,7 +43,7 @@ public class SuggestionListBuilder {
 
     public List<Suggestion> build() {
         isBuilt = true;
-        return dedupeSuggestions();
+        return new ArrayList<>(); // dedupeSuggestions();
     }
 
     /**
