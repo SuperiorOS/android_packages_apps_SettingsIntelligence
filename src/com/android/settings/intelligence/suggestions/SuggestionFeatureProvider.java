@@ -18,6 +18,7 @@ package com.android.settings.intelligence.suggestions;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.service.settings.suggestions.Suggestion;
 
 import com.android.settings.intelligence.suggestions.ranking.SuggestionEventStore;
@@ -87,6 +88,8 @@ public class SuggestionFeatureProvider {
      * Whether or not a suggestion is dismissed
      */
     public boolean isSuggestionDismissed(Context context, String id) {
+        if (Settings.System.getInt(context.getContentResolver(),
+                Settings.System.ENABLE_SUGGESTIONS, 1) == 0) return true;
         return getSharedPrefs(context)
                 .getBoolean(getDismissKey(id), false);
     }
